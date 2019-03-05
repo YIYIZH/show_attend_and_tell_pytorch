@@ -85,8 +85,8 @@ def main(args):
     print("Start resize_image")
     splits = ['train', 'val']
     for split in splits:
-        folder = '/data1/public/coco/data/%s2014' %split
-        resized_folder = '/data1/public/coco/data/%s2014_resized/' %split
+        folder = '/data1/public/coco/images/%s2014' %split
+        resized_folder = '/data1/public/coco/images/%s2014_resized/' %split
         if not os.path.exists(resized_folder):
             os.makedirs(resized_folder)
         print ('Start resizing %s images.' %split)
@@ -104,7 +104,7 @@ def main(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--caption_path', type=str,
-                        default='/data1/public/coco/annotation/instances_train2014.json',
+                        default='/data1/public/coco/captions_train2014.json',
                         help='path for train annotation file')
     parser.add_argument('--vocab_path', type=str, default='./data/vocab.pkl',
                         help='path for saving vocabulary wrapper')
