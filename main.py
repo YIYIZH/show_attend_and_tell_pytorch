@@ -11,6 +11,7 @@ from model import EncoderCNN, AttnDecoderRNN
 from data_loader import get_loader
 from nltk.translate.bleu_score import corpus_bleu
 from utils import *
+from prepro import *
 
 # Device configuration
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
