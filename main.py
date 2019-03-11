@@ -110,7 +110,7 @@ def main(args):
             adjust_learning_rate(decoder_optimizer, 0.8)
             if args.fine_tune_encoder:
                 adjust_learning_rate(encoder_optimizer, 0.8)
-
+        '''
         train(train_loader=train_loader,
               encoder=encoder,
               decoder=decoder,
@@ -118,12 +118,13 @@ def main(args):
               encoder_optimizer=encoder_optimizer,
               decoder_optimizer=decoder_optimizer,
               epoch=epoch)
-
+        '''
+        print("start")
         recent_bleu4 = validate(val_loader=val_loader,
                                 encoder=encoder,
                                 decoder=decoder,
                                 criterion=criterion)
-
+        print("end")
         is_best = recent_bleu4 > best_bleu4
         best_bleu4 = max(recent_bleu4, best_bleu4)
         if not is_best:
@@ -219,8 +220,9 @@ def validate(val_loader, encoder, decoder, criterion):
     hypotheses = list()  # hypotheses (predictions)
 
     # Batches
+    print("1111")
     for i, (imgs, caps, caplens, allcaps) in enumerate(val_loader):
-
+        print("2222")
         # Move to device, if available
         imgs = imgs.to(device)
         caps = caps.to(device)
